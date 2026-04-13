@@ -1,0 +1,10 @@
+name: emoji-ai-mcp
+description: "MEOK AI Labs — Emoji search, suggestion, and analysis tools powered by MEOK AI Labs."
+vendor: MEOK AI Labs
+homepage: https://meok.ai
+repository: https://github.com/CSOAI-ORG/emoji-ai-mcp
+license: MIT
+categories: [Utilities, Text Processing]
+tags: [emoji, emoticon, unicode-emoji, emoji-search, text-decoration]
+runtime: python
+entrypoint: server.py
