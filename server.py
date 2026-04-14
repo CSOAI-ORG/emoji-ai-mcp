@@ -3,6 +3,11 @@ Emoji AI MCP Server
 Emoji search, suggestion, and analysis tools powered by MEOK AI Labs.
 """
 
+
+import sys, os
+sys.path.insert(0, os.path.expanduser('~/clawd/meok-labs-engine/shared'))
+from auth_middleware import check_access
+
 import re
 import time
 from collections import defaultdict
@@ -91,13 +96,17 @@ def _check_rate_limit(tool_name: str) -> None:
 
 
 @mcp.tool()
-def search_emoji(query: str, limit: int = 10) -> dict:
+def search_emoji(query: str, limit: int = 10, api_key: str = "") -> dict:
     """Search for emojis by keyword or name.
 
     Args:
         query: Search keyword
         limit: Max results (default 10)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("search_emoji")
     q = query.lower()
     results = []
@@ -108,13 +117,17 @@ def search_emoji(query: str, limit: int = 10) -> dict:
 
 
 @mcp.tool()
-def suggest_for_text(text: str, max_suggestions: int = 5) -> dict:
+def suggest_for_text(text: str, max_suggestions: int = 5, api_key: str = "") -> dict:
     """Suggest relevant emojis for a given text based on sentiment/content.
 
     Args:
         text: Text to analyze for emoji suggestions
         max_suggestions: Maximum emoji suggestions (default 5)
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("suggest_for_text")
     text_lower = text.lower()
     scores = defaultdict(int)
@@ -145,12 +158,16 @@ def suggest_for_text(text: str, max_suggestions: int = 5) -> dict:
 
 
 @mcp.tool()
-def emoji_to_text(text: str) -> dict:
+def emoji_to_text(text: str, api_key: str = "") -> dict:
     """Convert emojis in text to their text descriptions.
 
     Args:
         text: Text containing emojis to convert
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("emoji_to_text")
     reverse_map = {data["emoji"]: data["name"] for data in EMOJI_DB.values()}
     result = text
@@ -163,12 +180,16 @@ def emoji_to_text(text: str) -> dict:
 
 
 @mcp.tool()
-def count_emojis(text: str) -> dict:
+def count_emojis(text: str, api_key: str = "") -> dict:
     """Count and categorize emojis in text.
 
     Args:
         text: Text to analyze for emojis
     """
+    allowed, msg, tier = check_access(api_key)
+    if not allowed:
+        return {"error": msg, "upgrade_url": "https://meok.ai/pricing"}
+
     _check_rate_limit("count_emojis")
     emoji_pattern = re.compile(
         "[\U0001F600-\U0001F64F\U0001F300-\U0001F5FF\U0001F680-\U0001F6FF"

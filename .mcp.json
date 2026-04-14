@@ -1,23 +1,73 @@
 {
   "name": "emoji-ai-mcp",
-  "description": "MEOK AI Labs \u2014 Emoji search, suggestion, and analysis tools powered by MEOK AI Labs.",
-  "vendor": "MEOK AI Labs",
-  "homepage": "https://meok.ai",
-  "repository": "https://github.com/CSOAI-ORG/emoji-ai-mcp",
-  "runtime": "python",
-  "entrypoint": "server.py",
+  "description": "Emoji search, text-based suggestions, emoji-to-text conversion, and counting.",
+  "version": "1.0.0",
   "tools": [
-    "search_emoji",
-    "suggest_for_text",
-    "emoji_to_text",
-    "count_emojis"
-  ],
-  "categories": [
-    "Utilities",
-    "Text Processing"
-  ],
-  "pricing": {
-    "free": "50 calls/day",
-    "pro": "$9/mo"
-  }
+    {
+      "name": "search_emoji",
+      "description": "Search for emojis by keyword or name.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "query": {
+            "type": "string"
+          },
+          "limit": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "query"
+        ]
+      }
+    },
+    {
+      "name": "suggest_for_text",
+      "description": "Suggest relevant emojis for a given text based on sentiment/content.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          },
+          "max_suggestions": {
+            "type": "integer"
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "emoji_to_text",
+      "description": "Convert emojis in text to their text descriptions.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    },
+    {
+      "name": "count_emojis",
+      "description": "Count and categorize emojis in text.",
+      "parameters": {
+        "type": "object",
+        "properties": {
+          "text": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "text"
+        ]
+      }
+    }
+  ]
 }

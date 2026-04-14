@@ -1,10 +1,34 @@
 name: emoji-ai-mcp
-description: "MEOK AI Labs — Emoji search, suggestion, and analysis tools powered by MEOK AI Labs."
-vendor: MEOK AI Labs
-homepage: https://meok.ai
-repository: https://github.com/CSOAI-ORG/emoji-ai-mcp
-license: MIT
-categories: [Utilities, Text Processing]
-tags: [emoji, emoticon, unicode-emoji, emoji-search, text-decoration]
-runtime: python
-entrypoint: server.py
+description: Emoji search, text-based suggestions, emoji-to-text conversion, and counting.
+version: 1.0.0
+tools:
+- name: search_emoji
+  description: Search for emojis by keyword or name.
+  parameters:
+  - name: query
+    type: string
+    required: true
+  - name: limit
+    type: integer
+    required: false
+- name: suggest_for_text
+  description: Suggest relevant emojis for a given text based on sentiment/content.
+  parameters:
+  - name: text
+    type: string
+    required: true
+  - name: max_suggestions
+    type: integer
+    required: false
+- name: emoji_to_text
+  description: Convert emojis in text to their text descriptions.
+  parameters:
+  - name: text
+    type: string
+    required: true
+- name: count_emojis
+  description: Count and categorize emojis in text.
+  parameters:
+  - name: text
+    type: string
+    required: true
