@@ -1,5 +1,5 @@
 name: emoji-ai-mcp
-description: Emoji search, text-based suggestions, emoji-to-text conversion, and counting.
+description: MEOK AI Labs MCP Server
 version: 1.0.0
 tools:
 - name: search_emoji
