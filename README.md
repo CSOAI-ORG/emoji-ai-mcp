@@ -1,24 +1,64 @@
-# Emoji AI MCP Server
+# Emoji Ai
 
-Emoji search, text-based suggestions, emoji-to-text conversion, and counting.
+> By [MEOK AI Labs](https://meok.ai) — MEOK AI Labs MCP Server
+
+Emoji AI MCP Server
+
+## Installation
+
+```bash
+pip install emoji-ai-mcp
+```
+
+## Usage
+
+```bash
+# Run standalone
+python server.py
+
+# Or via MCP
+mcp install emoji-ai-mcp
+```
 
 ## Tools
 
-- **search_emoji**
-- **suggest_for_text**
-- **emoji_to_text**
-- **count_emojis**
+### `search_emoji`
+Search for emojis by keyword or name.
 
-## Quick Start
+**Parameters:**
+- `query` (str)
+- `limit` (int)
 
-```bash
-pip install mcp
-python server.py
-```
+### `suggest_for_text`
+Suggest relevant emojis for a given text based on sentiment/content.
 
-## Rate Limits
+**Parameters:**
+- `text` (str)
+- `max_suggestions` (int)
 
-- Free tier: 50 calls/day per tool
-- Upgrade: https://meok.ai/pricing
+### `emoji_to_text`
+Convert emojis in text to their text descriptions.
 
-Built by [MEOK AI Labs](https://meok.ai)
+**Parameters:**
+- `text` (str)
+
+### `count_emojis`
+Count and categorize emojis in text.
+
+**Parameters:**
+- `text` (str)
+
+
+## Authentication
+
+Free tier: 15 calls/day. Upgrade at [meok.ai/pricing](https://meok.ai/pricing) for unlimited access.
+
+## Links
+
+- **Website**: [meok.ai](https://meok.ai)
+- **GitHub**: [CSOAI-ORG/emoji-ai-mcp](https://github.com/CSOAI-ORG/emoji-ai-mcp)
+- **PyPI**: [pypi.org/project/emoji-ai-mcp](https://pypi.org/project/emoji-ai-mcp/)
+
+## License
+
+MIT — MEOK AI Labs
