@@ -1,6 +1,6 @@
 {
   "name": "emoji-ai-mcp",
-  "description": "> **By [MEOK AI Labs](https://meok.ai)** \u2014 MEOK AI Labs MCP Server",
+  "description": "MCP server for emoji ai. Features search emoji, suggest for text, emoji to text. From MEOK AI Labs.",
   "version": "1.0.0",
   "tools": [
     {
