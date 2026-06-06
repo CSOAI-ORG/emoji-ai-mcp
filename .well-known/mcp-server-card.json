@@ -1,0 +1,25 @@
+{
+  "name": "emoji-ai-mcp",
+  "title": "Emoji Ai Mcp",
+  "description": "MCP server for emoji ai. Features search emoji, suggest for text, emoji to text. From MEOK AI Labs.",
+  "version": "1.0.6",
+  "homepage": "https://meok.ai",
+  "license": "MIT",
+  "transport": {
+    "type": "stdio"
+  },
+  "tools": [
+    {
+      "name": "search_emoji"
+    },
+    {
+      "name": "suggest_for_text"
+    },
+    {
+      "name": "emoji_to_text"
+    },
+    {
+      "name": "count_emojis"
+    }
+  ]
+}

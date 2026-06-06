@@ -1,0 +1,9 @@
+# emoji-ai-mcp - Auto-trigger Rules
+
+When the user asks about emoji, use emoji-ai-mcp tools: search_emoji, suggest_for_text, emoji_to_text, count_emojis
+
+Emoji search, suggestion, and analysis tools powered by MEOK AI Labs.
+
+Install: `pip install emoji-ai-mcp`
+
+By MEOK AI Labs — MIT licensed.
